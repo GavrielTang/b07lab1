@@ -13,19 +13,24 @@ public class Polynomial{
     }
 
     public Polynomial add(Polynomial poly){
-        int length = Math.max(poly.coefficients.length, this.coefficients.length)
-        double[] sums = new double[length]
+        int length = Math.max(poly.coefficients.length, this.coefficients.length);
+        double[] sums = new double[length];
 
-        for(int i = 0; i < length, i++){
-            sums[i] += this.coefficients[i] + poly.coefficients[i];
+        for(int i = 0; i < this.coefficients.length; i++){
+            sums[i] += this.coefficients[i];
         }
+
+        for(int i = 0; i < poly.coefficients.length; i++){
+            sums[i] += poly.coefficients[i];
+        }
+
 
         return new Polynomial(sums);
     }
 
-    public int evaluate(double x){
-        int sum=0;
-        for(int i = 0; i < coefficients.length, i++){
+    public double evaluate(double x){
+        double sum=0;
+        for(int i = 0; i < coefficients.length; i++){
             sum += coefficients[i]*Math.pow(x, i);
         }
 
